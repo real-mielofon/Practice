@@ -4,12 +4,15 @@ jdk: oraclejdk8
 install: true
 script: mvn clean install
 
+cache:
+  directories:
+  - $HOME/.m2
 deploy:
   -
     on:
       branch: release
     provider: bintray
     skip_cleanup: true
-    file: target/bin/bintray.json
+    file: config/bintray.json
     user: real-mielofon
     key: $BINTRAY_API_KEY
